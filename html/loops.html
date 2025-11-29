@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      // let i=5;
+       // while (i>=0) {
+        //    document.write(i + "<br>");
+          //  i--;
+        
+        //}
+
+       /*let number = 12321;
+        let temp = number;
+        let rev = 0;
+        while (temp > 0) {
+            let digit = temp % 10;
+            rev = rev * 10 + digit;
+            temp = Math.floor(temp / 10);
+        }   
+        if (rev === number) {
+            document.write(number + " is a palindrome<br>");
+        } else {
+            document.write(number + " is not a palindrome<br>");
+        }   */
+       let number = 12321;
+        let temp = number;
+        let rev = 0;
+        let len =0;
+        while (temp > 0) {
+    
+            temp = Math.floor(temp / 10);
+            len+=1
+            temp = Math.floor(temp / 10);
+        } 
+         if (rev === number) {
+            document.write(number + " is a palindrome<br>");
+        } else {
+            document.write(number + " is not a palindrome<br>");
+        }
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Registration</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* center card and limit width */
+        .auth-card { max-width: 420px; width: 100%; }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="card shadow-sm auth-card">
+            <div class="card-body p-4">
+                <h4 class="card-title text-center mb-3">Register</h4>
+
+                <div id="formAlert" class="mb-2"></div>
+
+                <form id="regForm" novalidate>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="you@example.com">
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            required
+                            pattern="^[A-Za-z0-9_]{3,20}$"
+                            title="3–20 characters, letters, numbers or underscore"
+                            placeholder="username">
+                        <div class="invalid-feedback">3–20 characters; letters, numbers or underscore only.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required minlength="8" placeholder="At least 8 characters">
+                        <div class="form-text">Minimum 8 characters.</div>
+                        <div class="invalid-feedback">Password must be at least 8 characters.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirm" name="confirm" class="form-control" required placeholder="Repeat password">
+                        <div class="invalid-feedback">Passwords do not match.</div>
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="showPwd">
+                        <label class="form-check-label" for="showPwd">Show passwords</label>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Register</button>
+                    </div>
+                </form>
+
+                <hr class="my-3">
+                <div class="text-center small text-muted">This is a client-side demo only.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS + dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('regForm');
+            const email = form.email;
+            const username = form.username;
+            const password = form.password;
+            const confirm = form.confirm;
+            const submitBtn = document.getElementById('submitBtn');
+            const alertBox = document.getElementById('formAlert');
+            const showPwd = document.getElementById('showPwd');
+
+            // enable/disable submit and show validation states
+            function validateEl(el) {
+                if (el.checkValidity()) {
+                    el.classList.remove('is-invalid');
+                    el.classList.add('is-valid');
+                    return true;
+                } else {
+                    el.classList.remove('is-valid');
+                    el.classList.add('is-invalid');
+                    return false;
+                }
+            }
+
+            function validatePasswords() {
+                // password length checked by checkValidity(), confirm must match
+                const pwValid = password.checkValidity();
+                if (!pwValid) {
+                    password.classList.remove('is-valid');
+                    password.classList.add('is-invalid');
+                } else {
+                    password.classList.remove('is-invalid');
+                    password.classList.add('is-valid');
+                }
+
+                if (!pwValid || password.value !== confirm.value) {
+                    confirm.classList.remove('is-valid');
+                    confirm.classList.add('is-invalid');
+                    return false;
+                } else {
+                    confirm.classList.remove('is-invalid');
+                    confirm.classList.add('is-valid');
+                    return true;
+                }
+            }
+
+            function updateState() {
+                const ok = validateEl(email) & validateEl(username) & validatePasswords();
+                submitBtn.disabled = !ok;
+            }
+
+            // validate on input
+            [email, username, password, confirm].forEach(el => {
+                el.addEventListener('input', updateState);
+            });
+
+            showPwd.addEventListener('change', () => {
+                const type = showPwd.checked ? 'text' : 'password';
+                password.type = type;
+                confirm.type = type;
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                updateState();
+                if (submitBtn.disabled) return;
+
+                // demo success (replace with real submit)
+                alertBox.innerHTML = '<div class="alert alert-success mb-0">Registration successful (demo)</div>';
+
+                // reset form and states
+                form.reset();
+                [email, username, password, confirm].forEach(el => {
+                    el.classList.remove('is-valid', 'is-invalid');
+                });
+                submitBtn.disabled = true;
+            });
+        });
+    </script>
+</body>
+</html>

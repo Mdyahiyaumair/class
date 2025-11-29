@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Loop Output</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        let out = [];
+        for (let i = 1; i <= 18; i++) {
+            if (i % 3 === 0 || i % 5 === 0) out.push(i);
+        }
+        document.getElementById('output').textContent = out.join(' ');
+    </script>
+</body>
+</html>

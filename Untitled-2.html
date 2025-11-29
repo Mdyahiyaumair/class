@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+        }
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .pricing-card {
+            border-radius: 10px;
+            transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+            height: 100%;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-bottom: none;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .list-unstyled li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .btn-pricing {
+            width: 100%;
+            padding: 0.75rem;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        .contact-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pricing-header">
+            <h1>Pricing</h1>
+            <p class="lead">Build an effective pricing table for your potential customers with this licensing example. Built with default Bootstrap components and utilities with little customization.</p>
+        </div>
+
+        <div class="row">
+            <!-- Free Plan -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card pricing-card">
+                    <div class="card-header bg-light">
+                        <h4 class="my-0 fw-normal">Free</h4>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="price">$0<small class="text-muted">/mo</small></h2>
+                        <ul class="list-unstyled">
+                            <li>50 / mo</li>
+                            <li>10 extra included</li>
+                            <li>7,000 vintage</li>
+                            <li>Email Support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button class="btn btn-outline-primary btn-pricing">Sign up for free</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- $15 Plan -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card pricing-card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="my-0 fw-normal">Pro</h4>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="price">$15<small class="text-muted">/mo</small></h2>
+                        <ul class="list-unstyled">
+                            <li>20 extra included</li>
+                            <li>90 GB of storage</li>
+                            <li>Priority email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button class="btn btn-primary btn-pricing">Get started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card pricing-card">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="my-0 fw-normal">Enterprise</h4>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="price">$29<small class="text-muted">/mo</small></h2>
+                        <ul class="list-unstyled">
+                            <li>30 items included</li>
+                            <li>15 GB of storage</li>
+                            <li>Phone and email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button class="btn btn-dark btn-pricing">Contact us</button>
+                    </div>
+                </div>
+            </div>
+
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

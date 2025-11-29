@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    FName: <input type="text" id="fname"><br>
+    LName: <input type="text" id="lname"><br>
+    <input type="button" value="Greet" onclick="greetUser()">
+<br>
+<h1 id="h1"></h1>
+    <script>
+        function greetUser() {
+            objfName = document.getElementById("fname").value;
+            objlName = document.getElementById("lname").value;
+            document.getElementById("h1").innerText("welcome" + lName + " " + fName);
+        }
+
+        
+    </script>
+
+
+
+</body>
+</html>
